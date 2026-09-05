@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T15:05:49.334Z",
+  "generatedAt": "2026-09-05T15:07:27.614Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -52,9 +52,9 @@
       "conclusion": "success",
       "status": "operational",
       "reason": null,
-      "updatedAt": "2026-09-05T13:30:46Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/33969076860",
-      "summary": "Production health probe",
+      "updatedAt": "2026-09-05T15:07:27.020Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/33973798223",
+      "summary": "site + proxy health",
       "outcomes": null
     }
   ]
