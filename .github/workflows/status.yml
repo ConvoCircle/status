@@ -20,7 +20,9 @@ permissions:
 
 concurrency:
   group: status-probe
-  cancel-in-progress: false
+  # One probe at a time — overlapping runs raced on data/*.json commits
+  # and failed the job even when all endpoints were healthy.
+  cancel-in-progress: true
 
 jobs:
   probe:
@@ -65,19 +67,34 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/status.json data/history.json
-          if git diff --cached --quiet; then
-            echo "No history change"
-            exit 0
-          fi
-          git commit -m "$(cat <<EOF
+          # Snapshot probe outputs before any rebase so we can re-apply after a race.
+          cp data/status.json /tmp/status.probe.json
+          cp data/history.json /tmp/history.probe.json
+          for attempt in 1 2 3 4 5; do
+            git fetch origin
+            git reset --hard "origin/$(git rev-parse --abbrev-ref HEAD)"
+            cp /tmp/status.probe.json data/status.json
+            cp /tmp/history.probe.json data/history.json
+            git add data/status.json data/history.json
+            if git diff --cached --quiet; then
+              echo "No history change"
+              exit 0
+            fi
+            git commit -m "$(cat <<EOF
           chore: status snapshot $(date -u +%Y-%m-%dT%H:%MZ)
 
           [skip ci]
           EOF
           )"
-          git pull --rebase --autostash origin HEAD
-          git push
+            if git push origin HEAD; then
+              echo "History committed on attempt ${attempt}"
+              exit 0
+            fi
+            echo "Push raced (attempt ${attempt}); retrying…"
+            sleep $((attempt * 2))
+          done
+          echo "::error::Could not commit status history after retries (endpoints were probed; page may be stale until next run)."
+          exit 1
 
   publish:
     needs: probe
