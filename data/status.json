@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T13:57:56.093Z",
+  "generatedAt": "2026-09-05T14:52:26.130Z",
   "overall": "operational",
   "components": [
     {
@@ -8,9 +8,10 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 388,
+      "latencyMs": 387,
       "httpStatus": 200,
-      "checkedAt": "2026-09-05T13:57:54.840Z"
+      "checkedAt": "2026-09-05T14:52:26.519Z",
+      "kind": "web"
     },
     {
       "id": "gemini-proxy",
@@ -18,9 +19,10 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 287,
+      "latencyMs": 302,
       "httpStatus": 200,
-      "checkedAt": "2026-09-05T13:57:55.128Z"
+      "checkedAt": "2026-09-05T14:52:26.822Z",
+      "kind": "proxy"
     },
     {
       "id": "elevenlabs-proxy",
@@ -28,9 +30,10 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 293,
+      "latencyMs": 283,
       "httpStatus": 200,
-      "checkedAt": "2026-09-05T13:57:55.421Z"
+      "checkedAt": "2026-09-05T14:52:27.106Z",
+      "kind": "proxy"
     },
     {
       "id": "stripe-proxy",
@@ -38,9 +41,10 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 314,
+      "latencyMs": 303,
       "httpStatus": 200,
-      "checkedAt": "2026-09-05T13:57:55.736Z"
+      "checkedAt": "2026-09-05T14:52:27.409Z",
+      "kind": "proxy"
     },
     {
       "id": "openrouter-proxy",
@@ -48,9 +52,58 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 357,
+      "latencyMs": 309,
       "httpStatus": 200,
-      "checkedAt": "2026-09-05T13:57:56.093Z"
+      "checkedAt": "2026-09-05T14:52:27.718Z",
+      "kind": "proxy"
+    },
+    {
+      "id": "hourly-prod-scenarios",
+      "name": "Hourly scenarios",
+      "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
+      "kind": "ci",
+      "status": "unknown",
+      "reason": "No completed run yet",
+      "latencyMs": null,
+      "httpStatus": null,
+      "checkedAt": "2026-09-05T14:52:26.130Z",
+      "updatedAt": null,
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/workflows/hourly-prod-scenarios.yml",
+      "conclusion": null,
+      "summary": null,
+      "outcomes": null
+    },
+    {
+      "id": "nightly-prod",
+      "name": "Nightly LLM probe",
+      "description": "Scheduled production conversation",
+      "kind": "ci",
+      "status": "unknown",
+      "reason": "No completed run yet",
+      "latencyMs": null,
+      "httpStatus": null,
+      "checkedAt": "2026-09-05T14:52:26.130Z",
+      "updatedAt": null,
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/workflows/nightly-prod.yml",
+      "conclusion": null,
+      "summary": null,
+      "outcomes": null
+    },
+    {
+      "id": "prod-health",
+      "name": "Health probe (Actions)",
+      "description": "socialTrainer production health workflow",
+      "kind": "ci",
+      "status": "unknown",
+      "reason": "No completed run yet",
+      "latencyMs": null,
+      "httpStatus": null,
+      "checkedAt": "2026-09-05T14:52:26.130Z",
+      "updatedAt": null,
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/workflows/prod-health.yml",
+      "conclusion": null,
+      "summary": null,
+      "outcomes": null
     }
   ],
   "incident": null,
@@ -77,6 +130,21 @@
       "d30": 100
     },
     "openrouter-proxy": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "hourly-prod-scenarios": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "nightly-prod": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "prod-health": {
       "h24": 100,
       "d7": 100,
       "d30": 100
