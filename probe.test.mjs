@@ -11,6 +11,7 @@ import {
   COMPONENTS,
 } from "./probe.mjs";
 import { classifyCi, pickNewer, workflowToComponent, CI_COMPONENTS } from "./ci.mjs";
+import { scenarioChipsHtml, scenarioMechanicalPassed } from "./assets/scenario-chips.mjs";
 
 describe("classify", () => {
   it("marks web operational when HTML + hashed bundle are present", () => {
@@ -179,7 +180,12 @@ describe("incident + snapshot", () => {
       new Date("2026-09-05T15:00:00.000Z"),
     );
     assert.equal(hourly.status, "operational");
+    // Feed may still carry social flags; public chips ignore them.
     assert.equal(hourly.outcomes[0].outcomeAchieved, false);
+    assert.equal(scenarioMechanicalPassed(hourly.outcomes[0], hourly), true);
+    const chips = scenarioChipsHtml(hourly);
+    assert.match(chips, /rizz-invite-over · <b>Passed<\/b>/);
+    assert.doesNotMatch(chips, /Invite accepted|accepted:|<\/b>yes|<\/b>no/i);
     const snap = buildSnapshot({
       results: [...http, hourly],
       history: { v: 1, ids: [], samples: [] },
@@ -216,6 +222,36 @@ describe("incident + snapshot", () => {
     });
     assert.equal(snap.status.overall, "down");
     assert.match(snap.status.incident.summary, /Hourly scenarios/);
+  });
+});
+
+describe("public scenario chips", () => {
+  it("renders Passed/Failed and never invite/date/come-on yes/no", () => {
+    const html = scenarioChipsHtml({
+      status: "operational",
+      outcomes: [
+        { id: "brash-come-on", desiredOutcome: "come_on_accepted", outcomeAchieved: false },
+        { id: "meek-hesitant", desiredOutcome: "date_accepted", outcomeAchieved: true },
+        { id: "rizz-invite-over", desiredOutcome: "invite_accepted", outcomeAchieved: false },
+      ],
+    });
+    assert.match(html, /brash-come-on · <b>Passed<\/b>/);
+    assert.match(html, /meek-hesitant · <b>Passed<\/b>/);
+    assert.match(html, /rizz-invite-over · <b>Passed<\/b>/);
+    assert.doesNotMatch(html, /Invite accepted|Come-on accepted|Date accepted|accepted:/i);
+    assert.doesNotMatch(html, /<b>yes<\/b>|<b>no<\/b>/i);
+  });
+
+  it("uses mechanicalPass when present, even if the hourly card is down", () => {
+    const html = scenarioChipsHtml({
+      status: "down",
+      outcomes: [
+        { id: "rizz-invite-over", mechanicalPass: true, outcomeAchieved: false },
+        { id: "meek-hesitant", mechanicalPass: false, outcomeAchieved: true },
+      ],
+    });
+    assert.match(html, /rizz-invite-over · <b>Passed<\/b>/);
+    assert.match(html, /meek-hesitant · <b>Failed<\/b>/);
   });
 });
 

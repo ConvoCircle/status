@@ -183,8 +183,8 @@ body {
   color: var(--muted);
 }
 
-.outcome-chip.yes { background: var(--ok-bg); color: var(--ok); }
-.outcome-chip.no { background: var(--unknown-bg); color: var(--muted); }
+.outcome-chip.pass { background: var(--ok-bg); color: var(--ok); }
+.outcome-chip.fail { background: var(--down-bg); color: var(--down); }
 
 .section {
   margin: 28px 0 10px;

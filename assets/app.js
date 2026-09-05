@@ -1,3 +1,5 @@
+import { scenarioChipsHtml } from "./scenario-chips.mjs";
+
 const LABELS = {
   operational: "All systems operational",
   degraded: "Some systems degraded",
@@ -66,25 +68,6 @@ function renderBanner(status) {
   el.textContent = "";
 }
 
-function scenarioPassChips(component) {
-  const rows = component.outcomes;
-  if (!Array.isArray(rows) || !rows.length) return "";
-  // Public page: mechanical Passed only — never invite/date/come-on yes/no.
-  const mechFailed = component.status === "down";
-  return `
-    <div class="outcomes" aria-label="Mechanical scenario results">
-      ${rows
-        .map((row) => {
-          const id = row.id || "scenario";
-          const label = mechFailed ? "Failed" : "Passed";
-          const cls = mechFailed ? "no" : "yes";
-          return `<span class="outcome-chip ${cls}">${id} · <b>${label}</b></span>`;
-        })
-        .join("")}
-    </div>
-  `;
-}
-
 function card(component, status, history) {
   const up = status.uptime?.[component.id] || {};
   const ticks = ticksFor(component.id, history);
@@ -117,7 +100,7 @@ function card(component, status, history) {
         ${last}
         ${mech}
       </div>
-      ${scenarioPassChips(component)}
+      ${scenarioChipsHtml(component)}
     </article>
   `;
 }
@@ -151,7 +134,7 @@ async function render() {
     const http = components.filter((c) => c.kind !== "ci");
     const ci = components.filter((c) => c.kind === "ci");
     const ciNote = ci.length
-      ? `<p class="ci-note">Scenario chips show mechanical <b>Passed / Failed</b> only (engine replied, proxy up). Invite / come-over results are not shown on this public page.</p>`
+      ? `<p class="ci-note">Per-scenario chips are mechanical <b>Passed / Failed</b> only (engine replied, proxy up).</p>`
       : "";
     $("#components").innerHTML =
       section("Live endpoints", http, status, history) +

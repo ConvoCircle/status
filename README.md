@@ -25,7 +25,7 @@ Production CI is the **latest** socialTrainer Actions conclusion (not a live LLM
 
 CI conclusions come from, in order: GitHub Actions API (when `SOCIALTRAINER_ACTIONS_TOKEN` is set) and `data/ci-feed.json` (public JSON written by socialTrainer after each prod run). No secrets are committed.
 
-Hourly scenario pills are **mechanical** (engine/proxy). Outcome chips (invite / come-on / date accepted) are recorded separately. Scenario healthy ≠ she said yes.
+Hourly scenario pills and chips are **mechanical** (engine/proxy). Public chips show Passed / Failed per script — never invite, date, or come-on results. Scenario healthy ≠ she said yes.
 
 The page never stores proxy response bodies (Stripe `/health` includes config flags we do not publish).
 
