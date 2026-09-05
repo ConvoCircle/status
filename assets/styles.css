@@ -159,10 +159,48 @@ body {
 
 .muted { color: var(--muted); margin: 10px 0 0; }
 
+.note { max-width: 42rem; font-size: 0.92rem; }
+
+.ci-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  max-width: 42rem;
+}
+
+.outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.outcome-chip {
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  background: var(--unknown-bg);
+  color: var(--muted);
+}
+
+.outcome-chip.yes { background: var(--ok-bg); color: var(--ok); }
+.outcome-chip.no { background: var(--unknown-bg); color: var(--muted); }
+
+.section {
+  margin: 28px 0 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 .grid {
   display: grid;
   gap: 12px;
 }
+
+.card a { color: inherit; }
 
 .card {
   background: var(--bg-elev);

@@ -66,16 +66,47 @@ function renderBanner(status) {
   el.textContent = "";
 }
 
+const OUTCOME_LABELS = {
+  invite_accepted: "Invite accepted",
+  come_on_accepted: "Come-on accepted",
+  date_accepted: "Date accepted",
+};
+
+function outcomeChips(component) {
+  const rows = component.outcomes;
+  if (!Array.isArray(rows) || !rows.length) return "";
+  return `
+    <div class="outcomes" aria-label="Desired social outcomes (not pass/fail)">
+      ${rows
+        .map((row) => {
+          const label = OUTCOME_LABELS[row.desiredOutcome] || row.desiredOutcome || row.id;
+          const yes = row.outcomeAchieved === true;
+          return `<span class="outcome-chip ${yes ? "yes" : "no"}">${row.id || ""} · ${label}: <b>${yes ? "yes" : "no"}</b></span>`;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
 function card(component, status, history) {
   const up = status.uptime?.[component.id] || {};
   const ticks = ticksFor(component.id, history);
   const reason = component.reason ? ` · ${component.reason}` : "";
+  const link = component.url
+    ? ` · <a href="${component.url}">latest run</a>`
+    : "";
+  const last = component.kind === "ci"
+    ? `<span>Last run <b>${component.updatedAt ? relTime(component.updatedAt) : "—"}</b></span>`
+    : `<span>Latency <b>${component.latencyMs != null ? `${component.latencyMs} ms` : "—"}</b></span>`;
+  const mech = component.kind === "ci"
+    ? `<span>Mechanical <b>${component.status === "operational" ? "healthy" : component.status === "down" ? "failed" : component.status}</b></span>`
+    : "";
   return `
     <article class="card">
       <div class="card-head">
         <div>
           <h2>${component.name}</h2>
-          <p>${component.description || ""}${reason}</p>
+          <p>${component.description || ""}${reason}${link}</p>
         </div>
         <span class="pill ${component.status}">${component.status}</span>
       </div>
@@ -86,9 +117,21 @@ function card(component, status, history) {
         <span>24h <b>${pct(up.h24)}</b></span>
         <span>7d <b>${pct(up.d7)}</b></span>
         <span>30d <b>${pct(up.d30)}</b></span>
-        <span>Latency <b>${component.latencyMs != null ? `${component.latencyMs} ms` : "—"}</b></span>
+        ${last}
+        ${mech}
       </div>
+      ${outcomeChips(component)}
     </article>
+  `;
+}
+
+function section(title, items, status, history) {
+  if (!items.length) return "";
+  return `
+    <h2 class="section">${title}</h2>
+    <div class="grid">
+      ${items.map((c) => card(c, status, history)).join("")}
+    </div>
   `;
 }
 
@@ -107,9 +150,16 @@ async function render() {
     $("#overall").textContent = LABELS[status.overall] || LABELS.unknown;
     $("#updated").textContent = `Updated ${relTime(status.generatedAt)} · ${status.generatedAt || ""}`;
     renderBanner(status);
-    $("#components").innerHTML = (status.components || [])
-      .map((c) => card(c, status, history))
-      .join("");
+    const components = status.components || [];
+    const http = components.filter((c) => c.kind !== "ci");
+    const ci = components.filter((c) => c.kind === "ci");
+    const ciNote = ci.length
+      ? `<p class="ci-note">Scenario <b>healthy / failed</b> is mechanical only (engine replied, proxy up). Outcome chips (invite / come-on / date accepted) are recorded separately — a “no” does not make the page red.</p>`
+      : "";
+    $("#components").innerHTML =
+      section("Live endpoints", http, status, history) +
+      section("Production CI", ci, status, history) +
+      ciNote;
     document.title =
       status.overall === "operational"
         ? "ConvoCircle Status"

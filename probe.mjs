@@ -7,6 +7,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { collectCiComponents } from "./ci.mjs";
 
 export const UA = "convocircle-status-probe";
 export const TIMEOUT_MS = 15_000;
@@ -182,8 +183,8 @@ async function readJson(path, fallback) {
 export function buildSnapshot({ results, history, now }) {
   const nowIso = now.toISOString();
   const nowSec = Math.floor(now.getTime() / 1000);
-  const ids = COMPONENTS.map((c) => c.id);
-  const codes = results.map((r) => STATUS[r.status] ?? STATUS.down);
+  const ids = results.map((r) => r.id);
+  const codes = results.map((r) => (r.status === "unknown" ? STATUS.operational : STATUS[r.status] ?? STATUS.down));
   const samples = trimHistory(
     [...(history.samples || []), [nowSec, codes]],
     nowSec,
@@ -224,7 +225,7 @@ export function buildSnapshot({ results, history, now }) {
   };
 }
 
-export async function runProbe({ dataDir, retry = true } = {}) {
+export async function runProbe({ dataDir, retry = true, includeCi = true, now = new Date() } = {}) {
   const dir = dataDir || join(dirname(fileURLToPath(import.meta.url)), "data");
   await mkdir(dir, { recursive: true });
   const prevHistory = await readJson(join(dir, "history.json"), { v: 1, ids: [], samples: [] });
@@ -236,9 +237,13 @@ export async function runProbe({ dataDir, retry = true } = {}) {
         row.reason ? ` (${row.reason})` : ""
       }`,
     );
-    results.push(row);
+    results.push({ ...row, kind: component.kind });
   }
-  const snapshot = buildSnapshot({ results, history: prevHistory, now: new Date() });
+  if (includeCi) {
+    const ci = await collectCiComponents({ dataDir: dir, now });
+    results.push(...ci);
+  }
+  const snapshot = buildSnapshot({ results, history: prevHistory, now });
   await writeFile(join(dir, "status.json"), `${JSON.stringify(snapshot.status, null, 2)}\n`);
   await writeFile(join(dir, "history.json"), `${JSON.stringify(snapshot.history)}\n`);
   return snapshot;

@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#161614" media="(prefers-color-scheme: dark)" />
-    <meta name="description" content="Public uptime for ConvoCircle — web app and core proxies." />
+    <meta name="description" content="Public uptime for ConvoCircle — web app, core proxies, and latest production CI." />
     <title>ConvoCircle Status</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
     <link rel="stylesheet" href="./assets/styles.css" />
@@ -35,13 +35,17 @@
         <p class="eyebrow">Current status</p>
         <h1 id="overall">Loading…</h1>
         <p id="updated" class="muted">Checking live probes…</p>
+        <p class="muted note">
+          Scenario “success” means the conversation engine worked — not that she said yes.
+        </p>
       </section>
 
-      <section class="grid" id="components" aria-live="polite"></section>
+      <section id="components" aria-live="polite"></section>
 
       <footer class="foot">
         <p>
-          Probes run every ~15 minutes from GitHub Actions (free tier).
+          HTTP probes run every ~15 minutes. Production CI (hourly scenarios,
+          nightly LLM, health workflow) is the latest socialTrainer Actions conclusion.
           Owner paging (email / Linear / GitHub / SMS) is separate and unchanged.
         </p>
         <p>

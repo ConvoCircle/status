@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-09-05T14:00:00.000Z",
+  "source": "socialTrainer",
+  "workflows": [
+    {
+      "id": "hourly-prod-scenarios",
+      "name": "Hourly scenarios",
+      "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
+      "conclusion": null,
+      "status": "unknown",
+      "reason": "No completed run yet",
+      "updatedAt": null,
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/workflows/hourly-prod-scenarios.yml",
+      "summary": null,
+      "outcomes": null
+    },
+    {
+      "id": "nightly-prod",
+      "name": "Nightly LLM probe",
+      "description": "Scheduled production conversation",
+      "conclusion": null,
+      "status": "unknown",
+      "reason": "No completed run yet",
+      "updatedAt": null,
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/workflows/nightly-prod.yml",
+      "summary": null
+    },
+    {
+      "id": "prod-health",
+      "name": "Health probe (Actions)",
+      "description": "socialTrainer production health workflow",
+      "conclusion": null,
+      "status": "unknown",
+      "reason": "No completed run yet",
+      "updatedAt": null,
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/workflows/prod-health.yml",
+      "summary": null
+    }
+  ]
+}

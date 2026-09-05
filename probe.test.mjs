@@ -10,6 +10,7 @@ import {
   buildSnapshot,
   COMPONENTS,
 } from "./probe.mjs";
+import { classifyCi, pickNewer, workflowToComponent, CI_COMPONENTS } from "./ci.mjs";
 
 describe("classify", () => {
   it("marks web operational when HTML + hashed bundle are present", () => {
@@ -133,5 +134,104 @@ describe("incident + snapshot", () => {
     assert.equal(dumped.includes("keyConfigured"), false);
     assert.equal(dumped.includes("hasStripeKey"), false);
     assert.equal(overallFromCodes([STATUS.operational, STATUS.degraded]), "degraded");
+  });
+
+  it("does not fail overall when CI has not run yet", () => {
+    const http = COMPONENTS.map((c) => ({
+      id: c.id,
+      name: c.name,
+      status: "operational",
+      reason: null,
+      latencyMs: 80,
+      httpStatus: 200,
+      checkedAt: "2026-09-05T15:00:00.000Z",
+    }));
+    const pending = workflowToComponent(CI_COMPONENTS[0], null, new Date("2026-09-05T15:00:00.000Z"));
+    assert.equal(pending.status, "unknown");
+    const snap = buildSnapshot({
+      results: [...http, pending],
+      history: { v: 1, ids: [], samples: [] },
+      now: new Date("2026-09-05T15:00:00.000Z"),
+    });
+    assert.equal(snap.status.overall, "operational");
+  });
+
+  it("keeps overall operational when the engine worked but she said no", () => {
+    const http = COMPONENTS.map((c) => ({
+      id: c.id,
+      name: c.name,
+      status: "operational",
+      reason: null,
+      latencyMs: 80,
+      httpStatus: 200,
+      checkedAt: "2026-09-05T15:00:00.000Z",
+    }));
+    const hourly = workflowToComponent(
+      CI_COMPONENTS[0],
+      {
+        conclusion: "success",
+        updatedAt: "2026-09-05T14:55:00.000Z",
+        url: "https://github.com/ConvoCircle/socialTrainer/actions/runs/8",
+        outcomes: [
+          { id: "rizz-invite-over", desiredOutcome: "invite_accepted", outcomeAchieved: false, mechanicalPass: true },
+        ],
+      },
+      new Date("2026-09-05T15:00:00.000Z"),
+    );
+    assert.equal(hourly.status, "operational");
+    assert.equal(hourly.outcomes[0].outcomeAchieved, false);
+    const snap = buildSnapshot({
+      results: [...http, hourly],
+      history: { v: 1, ids: [], samples: [] },
+      now: new Date("2026-09-05T15:00:00.000Z"),
+    });
+    assert.equal(snap.status.overall, "operational");
+  });
+
+  it("goes down when the latest hourly scenario job failed — not all-green", () => {
+    const http = COMPONENTS.map((c) => ({
+      id: c.id,
+      name: c.name,
+      description: c.description,
+      status: "operational",
+      reason: null,
+      latencyMs: 80,
+      httpStatus: 200,
+      checkedAt: "2026-09-05T15:00:00.000Z",
+    }));
+    const hourly = workflowToComponent(
+      CI_COMPONENTS[0],
+      {
+        conclusion: "failure",
+        updatedAt: "2026-09-05T14:55:00.000Z",
+        url: "https://github.com/ConvoCircle/socialTrainer/actions/runs/9",
+      },
+      new Date("2026-09-05T15:00:00.000Z"),
+    );
+    assert.equal(hourly.status, "down");
+    const snap = buildSnapshot({
+      results: [...http, hourly],
+      history: { v: 1, ids: [...COMPONENTS.map((c) => c.id), hourly.id], samples: [] },
+      now: new Date("2026-09-05T15:00:00.000Z"),
+    });
+    assert.equal(snap.status.overall, "down");
+    assert.match(snap.status.incident.summary, /Hourly scenarios/);
+  });
+});
+
+describe("prod CI feed", () => {
+  it("classifies a failed hourly run as down", () => {
+    const got = classifyCi({
+      conclusion: "failure",
+      updatedAt: "2026-09-05T14:50:00.000Z",
+      now: new Date("2026-09-05T15:00:00.000Z"),
+    });
+    assert.equal(got.status, "down");
+  });
+
+  it("prefers the newer of Actions API vs committed feed", () => {
+    const older = { id: "hourly-prod-scenarios", updatedAt: "2026-09-05T13:00:00.000Z", conclusion: "success" };
+    const newer = { id: "hourly-prod-scenarios", updatedAt: "2026-09-05T14:50:00.000Z", conclusion: "failure" };
+    assert.equal(pickNewer(older, newer).conclusion, "failure");
   });
 });

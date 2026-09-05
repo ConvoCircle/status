@@ -4,7 +4,7 @@ Public, $0 status page for [convocircle.ai](https://convocircle.ai).
 
 **Live URL:** [https://convocircle.github.io/status/](https://convocircle.github.io/status/)
 
-This is a tiny static site (HTML + CSS + JS, no SaaS, no npm dependencies). GitHub Actions probes production every ~5 minutes, commits a capped JSON history, and deploys to GitHub Pages. It does **not** email, SMS, or open Linear issues. Owner alerts stay on the private `socialTrainer` prod-smoke path (CON-25 / `prod-alert.sh`).
+This is a tiny static site (HTML + CSS + JS, no SaaS, no npm dependencies). GitHub Actions probes production every ~15 minutes, commits a capped JSON history, and deploys to GitHub Pages. It does **not** email, SMS, or open Linear issues. Owner alerts stay on the private `socialTrainer` prod-smoke path (CON-25 / `prod-alert.sh`).
 
 ## What it checks
 
@@ -15,15 +15,24 @@ This is a tiny static site (HTML + CSS + JS, no SaaS, no npm dependencies). GitH
 | ElevenLabs | `https://d3v6ck6pnt.us-east-1.awsapprunner.com/health` | same |
 | Stripe | `https://xjmupy2vgu.us-east-1.awsapprunner.com/health` | same |
 | OpenRouter | `https://x43vfkbj3d.us-east-1.awsapprunner.com/health` | same |
+| Hourly scenarios | Latest `hourly-prod-scenarios.yml` on socialTrainer | Latest completed run succeeded |
+| Nightly LLM probe | Latest `nightly-prod.yml` | Latest completed run succeeded |
+| Health probe (Actions) | Latest `prod-health.yml` | Latest completed run succeeded |
 
 User-Agent: `convocircle-status-probe`. One retry after 5s on failure. Slow 2xx (≥5s) is **Degraded**; failed fetch / bad body is **Down**.
+
+Production CI is the **latest** socialTrainer Actions conclusion (not a live LLM replay on this repo). A failed hourly scenario job marks that component **Down** and the page is not all-green. Stale success (hourly older than 3h, nightly older than 36h, health older than 45m) is **Degraded**.
+
+CI conclusions come from, in order: GitHub Actions API (when `SOCIALTRAINER_ACTIONS_TOKEN` is set) and `data/ci-feed.json` (public JSON written by socialTrainer after each prod run). No secrets are committed.
+
+Hourly scenario pills are **mechanical** (engine/proxy). Outcome chips (invite / come-on / date accepted) are recorded separately. Scenario healthy ≠ she said yes.
 
 The page never stores proxy response bodies (Stripe `/health` includes config flags we do not publish).
 
 ## How it works
 
 1. `.github/workflows/status.yml` runs on `7,22,37,52 * * * *` UTC (and `workflow_dispatch`).
-2. `node --test probe.test.mjs` then `node probe.mjs` writes `data/status.json` + `data/history.json` (last ~30 days of samples).
+2. `node --test probe.test.mjs` then `node probe.mjs` writes `data/status.json` + `data/history.json` (last ~30 days of samples) and merges `data/ci-feed.json` / GitHub Actions conclusions into Production CI components.
 3. The same job deploys those files to the `github-pages` environment.
 4. The static page reads the JSON in the browser and shows overall status, per-component pills, 24h ticks, and 24h / 7d / 30d uptime.
 5. An incident banner appears while any component is **Down**. Optional: a public GitHub Issue labeled `incident` is opened/closed in **this** repo (log only — not a page).
