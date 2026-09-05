@@ -1,18 +1,37 @@
 {
-  "generatedAt": "2026-09-05T15:05:38.000Z",
+  "generatedAt": "2026-09-05T15:05:49.334Z",
   "source": "socialTrainer",
   "workflows": [
     {
       "id": "hourly-prod-scenarios",
       "name": "Hourly scenarios",
-      "description": "Mechanical LLM health (rizz / brash / meek) \u2014 not whether she said yes",
-      "conclusion": null,
-      "status": "unknown",
-      "reason": "No completed run yet",
-      "updatedAt": "2026-09-05T15:05:34Z",
+      "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
+      "conclusion": "success",
+      "status": "operational",
+      "reason": null,
+      "updatedAt": "2026-09-05T15:05:48.676Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/33973620518",
-      "summary": "Hourly prod scenarios",
-      "outcomes": null
+      "summary": "mechanical 0/3 attempts failed",
+      "outcomes": [
+        {
+          "id": "brash-come-on",
+          "desiredOutcome": "come_on_accepted",
+          "outcomeAchieved": false,
+          "mechanicalPass": true
+        },
+        {
+          "id": "meek-hesitant",
+          "desiredOutcome": "date_accepted",
+          "outcomeAchieved": true,
+          "mechanicalPass": true
+        },
+        {
+          "id": "rizz-invite-over",
+          "desiredOutcome": "invite_accepted",
+          "outcomeAchieved": false,
+          "mechanicalPass": true
+        }
+      ]
     },
     {
       "id": "nightly-prod",
