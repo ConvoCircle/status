@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-09-05T10:31:13.094Z",
+  "overall": "operational",
+  "components": [
+    {
+      "id": "web",
+      "name": "Web",
+      "description": "https://convocircle.ai",
+      "status": "operational",
+      "reason": null,
+      "latencyMs": 131,
+      "httpStatus": 200,
+      "checkedAt": "2026-09-05T10:31:12.827Z"
+    },
+    {
+      "id": "gemini-proxy",
+      "name": "Gemini",
+      "description": "Conversation / LLM proxy",
+      "status": "operational",
+      "reason": null,
+      "latencyMs": 64,
+      "httpStatus": 200,
+      "checkedAt": "2026-09-05T10:31:12.891Z"
+    },
+    {
+      "id": "elevenlabs-proxy",
+      "name": "ElevenLabs",
+      "description": "Voice / TTS proxy",
+      "status": "operational",
+      "reason": null,
+      "latencyMs": 61,
+      "httpStatus": 200,
+      "checkedAt": "2026-09-05T10:31:12.952Z"
+    },
+    {
+      "id": "stripe-proxy",
+      "name": "Stripe",
+      "description": "Checkout / billing proxy",
+      "status": "operational",
+      "reason": null,
+      "latencyMs": 75,
+      "httpStatus": 200,
+      "checkedAt": "2026-09-05T10:31:13.027Z"
+    },
+    {
+      "id": "openrouter-proxy",
+      "name": "OpenRouter",
+      "description": "OpenRouter proxy",
+      "status": "operational",
+      "reason": null,
+      "latencyMs": 67,
+      "httpStatus": 200,
+      "checkedAt": "2026-09-05T10:31:13.094Z"
+    }
+  ],
+  "incident": null,
+  "lastIncident": null,
+  "uptime": {
+    "web": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "gemini-proxy": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "elevenlabs-proxy": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "stripe-proxy": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    },
+    "openrouter-proxy": {
+      "h24": 100,
+      "d7": 100,
+      "d30": 100
+    }
+  }
+}

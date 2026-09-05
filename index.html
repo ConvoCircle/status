@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#161614" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Public uptime for ConvoCircle — web app and core proxies." />
+    <title>ConvoCircle Status</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <a class="brand" href="https://convocircle.ai">
+          <span class="mark" aria-hidden="true"></span>
+          <span>
+            <strong>ConvoCircle Status</strong>
+            <small>Public uptime · not an alert channel</small>
+          </span>
+        </a>
+        <div class="top-actions">
+          <a class="ghost" href="https://convocircle.ai">Open ConvoCircle</a>
+          <button type="button" id="theme-toggle" class="ghost icon" aria-label="Toggle color theme">
+            Theme
+          </button>
+        </div>
+      </header>
+
+      <section id="banner" class="banner" hidden></section>
+
+      <section class="hero" id="hero">
+        <p class="eyebrow">Current status</p>
+        <h1 id="overall">Loading…</h1>
+        <p id="updated" class="muted">Checking live probes…</p>
+      </section>
+
+      <section class="grid" id="components" aria-live="polite"></section>
+
+      <footer class="foot">
+        <p>
+          Probes run every ~15 minutes from GitHub Actions (free tier).
+          Owner paging (email / Linear / GitHub / SMS) is separate and unchanged.
+        </p>
+        <p>
+          <a href="https://github.com/ConvoCircle/status">Source</a>
+          ·
+          <a href="https://convocircle.ai">convocircle.ai</a>
+        </p>
+      </footer>
+    </div>
+    <script src="./assets/app.js" type="module"></script>
+  </body>
+</html>
