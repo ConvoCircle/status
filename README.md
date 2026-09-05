@@ -4,7 +4,7 @@ Public, $0 status page for [convocircle.ai](https://convocircle.ai).
 
 **Live URL:** [https://convocircle.github.io/status/](https://convocircle.github.io/status/)
 
-This is a tiny static site (HTML + CSS + JS, no SaaS, no npm dependencies). GitHub Actions probes production every ~15 minutes, commits a capped JSON history, and deploys to GitHub Pages. It does **not** email, SMS, or open Linear issues. Owner alerts stay on the private `socialTrainer` prod-smoke path (CON-25 / `prod-alert.sh`).
+This is a tiny static site (HTML + CSS + JS, no SaaS, no npm dependencies). GitHub Actions probes production every ~5 minutes, commits a capped JSON history, and deploys to GitHub Pages. It does **not** email, SMS, or open Linear issues. Owner alerts stay on the private `socialTrainer` prod-smoke path (CON-25 / `prod-alert.sh`).
 
 ## What it checks
 

@@ -2,8 +2,8 @@ name: Status probe
 
 on:
   schedule:
-    # Every ~15 min, offset from :00 — same grid as socialTrainer prod-health.
-    - cron: "7,22,37,52 * * * *"
+    # Every 5 min (GitHub Actions minimum practical interval). Offset from :00.
+    - cron: "2,7,12,17,22,27,32,37,42,47,52,57 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
