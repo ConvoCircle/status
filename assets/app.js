@@ -66,22 +66,19 @@ function renderBanner(status) {
   el.textContent = "";
 }
 
-const OUTCOME_LABELS = {
-  invite_accepted: "Invite accepted",
-  come_on_accepted: "Come-on accepted",
-  date_accepted: "Date accepted",
-};
-
-function outcomeChips(component) {
+function scenarioPassChips(component) {
   const rows = component.outcomes;
   if (!Array.isArray(rows) || !rows.length) return "";
+  // Public page: mechanical Passed only — never invite/date/come-on yes/no.
+  const mechFailed = component.status === "down";
   return `
-    <div class="outcomes" aria-label="Desired social outcomes (not pass/fail)">
+    <div class="outcomes" aria-label="Mechanical scenario results">
       ${rows
         .map((row) => {
-          const label = OUTCOME_LABELS[row.desiredOutcome] || row.desiredOutcome || row.id;
-          const yes = row.outcomeAchieved === true;
-          return `<span class="outcome-chip ${yes ? "yes" : "no"}">${row.id || ""} · ${label}: <b>${yes ? "yes" : "no"}</b></span>`;
+          const id = row.id || "scenario";
+          const label = mechFailed ? "Failed" : "Passed";
+          const cls = mechFailed ? "no" : "yes";
+          return `<span class="outcome-chip ${cls}">${id} · <b>${label}</b></span>`;
         })
         .join("")}
     </div>
@@ -120,7 +117,7 @@ function card(component, status, history) {
         ${last}
         ${mech}
       </div>
-      ${outcomeChips(component)}
+      ${scenarioPassChips(component)}
     </article>
   `;
 }
@@ -154,7 +151,7 @@ async function render() {
     const http = components.filter((c) => c.kind !== "ci");
     const ci = components.filter((c) => c.kind === "ci");
     const ciNote = ci.length
-      ? `<p class="ci-note">Scenario <b>healthy / failed</b> is mechanical only (engine replied, proxy up). Outcome chips (invite / come-on / date accepted) are recorded separately — a “no” does not make the page red.</p>`
+      ? `<p class="ci-note">Scenario chips show mechanical <b>Passed / Failed</b> only (engine replied, proxy up). Invite / come-over results are not shown on this public page.</p>`
       : "";
     $("#components").innerHTML =
       section("Live endpoints", http, status, history) +
