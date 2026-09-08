@@ -64,6 +64,9 @@ jobs:
           path: _site
 
       - name: Commit history
+        # History push races with ci-feed / overlapping probes must NOT fail the
+        # workflow (that skips Pages and emails a false "not successful").
+        continue-on-error: true
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -79,8 +82,35 @@ jobs:
           [skip ci]
           EOF
           )"
-          git pull --rebase --autostash origin HEAD
-          git push
+          # Prefer this run's snapshot JSON on conflict; retry push a few times.
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin HEAD; then
+              if git push; then
+                echo "history push ok (attempt ${attempt})"
+                exit 0
+              fi
+            fi
+            echo "history push conflict/race (attempt ${attempt}) — retrying"
+            git rebase --abort 2>/dev/null || true
+            git fetch origin HEAD
+            # Keep our committed tree for data files; rebase onto latest main.
+            git reset --soft origin/HEAD 2>/dev/null || git reset --soft FETCH_HEAD
+            git checkout --ours -- data/status.json data/history.json 2>/dev/null || true
+            git add data/status.json data/history.json
+            if git diff --cached --quiet; then
+              echo "nothing to push after reset"
+              exit 0
+            fi
+            git commit -m "$(cat <<EOF
+          chore: status snapshot $(date -u +%Y-%m-%dT%H:%MZ)
+
+          [skip ci]
+          EOF
+          )" || true
+            sleep $((attempt * 2))
+          done
+          echo "history push failed after retries — continuing so Pages still publishes"
+          exit 1
 
   publish:
     needs: probe
