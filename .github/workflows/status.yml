@@ -20,6 +20,8 @@ permissions:
 
 concurrency:
   group: status-probe
+  # Overlap is OK: commit-history.sh retries and cannot fail the job.
+  # Do not cancel-in-progress — a flaky dispatch must not drop a good publish.
   cancel-in-progress: false
 
 jobs:
@@ -63,24 +65,14 @@ jobs:
           name: status-site
           path: _site
 
+      # History git races must not fail the job (and skip Pages / email).
+      # A fatal probe.mjs error still fails this job before we get here.
       - name: Commit history
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/status.json data/history.json
-          if git diff --cached --quiet; then
-            echo "No history change"
-            exit 0
-          fi
-          git commit -m "$(cat <<EOF
-          chore: status snapshot $(date -u +%Y-%m-%dT%H:%MZ)
-
-          [skip ci]
-          EOF
-          )"
-          git pull --rebase --autostash origin HEAD
-          git push
+        continue-on-error: true
+        env:
+          PUSH_RETRIES: "5"
+          HISTORY_BRANCH: main
+        run: bash scripts/commit-history.sh
 
   publish:
     needs: probe

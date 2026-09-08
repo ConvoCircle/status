@@ -68,6 +68,59 @@ export function trimHistory(samples, nowSec, keepDays = HISTORY_DAYS) {
   return samples.filter((row) => Number(row?.[0]) >= cutoff);
 }
 
+/**
+ * Remap one [ts, codes] row onto `toIds`. Missing ids stay undefined so
+ * uptimePct skips them instead of counting a fake operational sample.
+ */
+export function remapSample(sample, fromIds, toIds) {
+  const ts = Number(sample?.[0]);
+  const codes = sample?.[1];
+  if (!Number.isFinite(ts) || !Array.isArray(codes)) return null;
+  if (!fromIds.length || fromIds.join("\0") === toIds.join("\0")) {
+    return [ts, codes.slice()];
+  }
+  return [ts, toIds.map((id) => {
+    const i = fromIds.indexOf(id);
+    return i >= 0 ? codes[i] : undefined;
+  })];
+}
+
+/**
+ * Union two history snapshots after a git race.
+ * `ours` is this run (wins ids / incident / same-timestamp samples).
+ * `theirs` is origin after reset (keep its other samples).
+ */
+export function mergeHistories(ours, theirs, nowSec = Math.floor(Date.now() / 1000)) {
+  const ids = Array.isArray(ours?.ids) && ours.ids.length ? ours.ids : (theirs?.ids || []);
+  const byTs = new Map();
+  for (const src of [theirs, ours]) {
+    const fromIds = src?.ids || [];
+    for (const row of src?.samples || []) {
+      const remapped = remapSample(row, fromIds, ids);
+      if (remapped) byTs.set(remapped[0], remapped);
+    }
+  }
+  const samples = trimHistory(
+    [...byTs.values()].sort((a, b) => a[0] - b[0]),
+    nowSec,
+  );
+  return {
+    v: 1,
+    ids,
+    incident: ours && "incident" in ours ? ours.incident : (theirs?.incident ?? null),
+    lastIncident: ours && "lastIncident" in ours ? ours.lastIncident : (theirs?.lastIncident ?? null),
+    samples,
+  };
+}
+
+export async function mergeHistoryFiles(oursPath, theirsPath, outPath, nowSec) {
+  const ours = await readJson(oursPath, { v: 1, ids: [], samples: [] });
+  const theirs = await readJson(theirsPath, { v: 1, ids: [], samples: [] });
+  const merged = mergeHistories(ours, theirs, nowSec);
+  await writeFile(outPath, `${JSON.stringify(merged)}\n`);
+  return merged;
+}
+
 export function overallFromCodes(codes) {
   if (codes.some((c) => c === STATUS.down)) return "down";
   if (codes.some((c) => c === STATUS.degraded)) return "degraded";
@@ -253,9 +306,26 @@ const isMain =
   process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 
 if (isMain) {
-  const retry = process.env.STATUS_PROBE_RETRY !== "0";
-  runProbe({ retry }).catch((err) => {
-    console.error("[status-probe] fatal", err);
-    process.exit(1);
-  });
+  const cmd = process.argv[2];
+  if (cmd === "merge-history") {
+    const ours = process.argv[3];
+    const theirs = process.argv[4];
+    const out = process.argv[5] || ours;
+    if (!ours || !theirs) {
+      console.error("usage: probe.mjs merge-history <ours.json> <theirs.json> [out.json]");
+      process.exit(2);
+    }
+    mergeHistoryFiles(ours, theirs, out).then((merged) => {
+      console.log(`[status-probe] merged history ${theirs} + ${ours} -> ${out} (${merged.samples.length} samples)`);
+    }).catch((err) => {
+      console.error("[status-probe] merge-history failed", err);
+      process.exit(1);
+    });
+  } else {
+    const retry = process.env.STATUS_PROBE_RETRY !== "0";
+    runProbe({ retry }).catch((err) => {
+      console.error("[status-probe] fatal", err);
+      process.exit(1);
+    });
+  }
 }

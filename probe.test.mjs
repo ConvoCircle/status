@@ -8,6 +8,8 @@ import {
   uptimePct,
   incidentFrom,
   buildSnapshot,
+  mergeHistories,
+  remapSample,
   COMPONENTS,
 } from "./probe.mjs";
 import { classifyCi, pickNewer, workflowToComponent, CI_COMPONENTS } from "./ci.mjs";
@@ -72,6 +74,46 @@ describe("history + uptime", () => {
     const old = [now - 40 * 86400, [0, 0, 0, 0, 0]];
     const keep = [now - 2 * 86400, [0, 0, 2, 0, 0]];
     assert.deepEqual(trimHistory([old, keep], now), [keep]);
+  });
+
+  it("merges concurrent history samples and prefers this run on the same timestamp", () => {
+    const now = 1_700_000_100;
+    const ids = ["web", "gemini-proxy"];
+    const theirs = {
+      v: 1,
+      ids,
+      incident: { active: true, summary: "stale" },
+      lastIncident: null,
+      samples: [
+        [now - 30, [0, 0]],
+        [now - 10, [0, 2]],
+      ],
+    };
+    const ours = {
+      v: 1,
+      ids,
+      incident: null,
+      lastIncident: { active: false, summary: "Web was down" },
+      samples: [
+        [now - 30, [0, 0]],
+        [now - 10, [1, 0]],
+        [now, [0, 0]],
+      ],
+    };
+    const merged = mergeHistories(ours, theirs, now);
+    assert.deepEqual(merged.ids, ids);
+    assert.equal(merged.incident, null);
+    assert.equal(merged.lastIncident.summary, "Web was down");
+    assert.deepEqual(merged.samples, [
+      [now - 30, [0, 0]],
+      [now - 10, [1, 0]],
+      [now, [0, 0]],
+    ]);
+  });
+
+  it("remaps samples when component ids differ", () => {
+    const got = remapSample([100, [2, 0]], ["web", "gemini-proxy"], ["gemini-proxy", "web", "stripe-proxy"]);
+    assert.deepEqual(got, [100, [0, 2, undefined]]);
   });
 
   it("counts non-down samples as uptime", () => {

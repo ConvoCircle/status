@@ -33,7 +33,7 @@ The page never stores proxy response bodies (Stripe `/health` includes config fl
 
 1. `.github/workflows/status.yml` runs on `7,22,37,52 * * * *` UTC (and `workflow_dispatch`).
 2. `node --test probe.test.mjs` then `node probe.mjs` writes `data/status.json` + `data/history.json` (last ~30 days of samples) and merges `data/ci-feed.json` / GitHub Actions conclusions into Production CI components.
-3. The same job deploys those files to the `github-pages` environment.
+3. The same job deploys those files to the `github-pages` environment. A concurrent history commit (cron + `workflow_dispatch`) retries, then continues so Pages still publishes — it does not fail the probe.
 4. The static page reads the JSON in the browser and shows overall status, per-component pills, 24h ticks, and 24h / 7d / 30d uptime.
 5. An incident banner appears while any component is **Down**. Optional: a public GitHub Issue labeled `incident` is opened/closed in **this** repo (log only — not a page).
 
