@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T22:27:42.118Z",
+  "generatedAt": "2026-09-10T22:39:47.096Z",
   "overall": "operational",
   "components": [
     {
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 404,
+      "latencyMs": 103,
       "httpStatus": 200,
-      "checkedAt": "2026-09-10T22:27:42.523Z",
+      "checkedAt": "2026-09-10T22:39:47.200Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 325,
+      "latencyMs": 89,
       "httpStatus": 200,
-      "checkedAt": "2026-09-10T22:27:42.849Z",
+      "checkedAt": "2026-09-10T22:39:47.290Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 331,
+      "latencyMs": 51,
       "httpStatus": 200,
-      "checkedAt": "2026-09-10T22:27:43.180Z",
+      "checkedAt": "2026-09-10T22:39:47.341Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 320,
+      "latencyMs": 47,
       "httpStatus": 200,
-      "checkedAt": "2026-09-10T22:27:43.500Z",
+      "checkedAt": "2026-09-10T22:39:47.388Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 1282,
+      "latencyMs": 90,
       "httpStatus": 200,
-      "checkedAt": "2026-09-10T22:27:44.782Z",
+      "checkedAt": "2026-09-10T22:39:47.478Z",
       "kind": "proxy"
     },
     {
@@ -66,11 +66,11 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-10T22:27:42.118Z",
-      "updatedAt": "2026-09-10T19:46:20.775Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34522106643",
+      "checkedAt": "2026-09-10T22:39:47.096Z",
+      "updatedAt": "2026-09-10T22:39:33.828Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34538301133",
       "conclusion": "success",
-      "summary": "mechanical 0/3 attempts failed",
+      "summary": "mechanical 1/3 attempts failed",
       "outcomes": [
         {
           "id": "brash-come-on",
@@ -101,7 +101,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-10T22:27:42.118Z",
+      "checkedAt": "2026-09-10T22:39:47.096Z",
       "updatedAt": "2026-09-10T11:11:52.252Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34469914163",
       "conclusion": "success",
@@ -117,7 +117,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-10T22:27:42.118Z",
+      "checkedAt": "2026-09-10T22:39:47.096Z",
       "updatedAt": "2026-09-10T22:27:28.162Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34537438134",
       "conclusion": "success",
