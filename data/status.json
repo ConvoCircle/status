@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T14:11:24.195Z",
-  "overall": "operational",
+  "generatedAt": "2026-09-11T16:34:18.573Z",
+  "overall": "degraded",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 272,
+      "latencyMs": 168,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T14:11:24.468Z",
+      "checkedAt": "2026-09-11T16:34:18.742Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 44,
+      "latencyMs": 68,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T14:11:24.513Z",
+      "checkedAt": "2026-09-11T16:34:18.811Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 93,
+      "latencyMs": 45,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T14:11:24.606Z",
+      "checkedAt": "2026-09-11T16:34:18.856Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 90,
+      "latencyMs": 48,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T14:11:24.696Z",
+      "checkedAt": "2026-09-11T16:34:18.904Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 45,
+      "latencyMs": 94,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T14:11:24.741Z",
+      "checkedAt": "2026-09-11T16:34:18.998Z",
       "kind": "proxy"
     },
     {
@@ -66,9 +66,9 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T14:11:24.195Z",
-      "updatedAt": "2026-09-11T11:40:35.208Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594968071",
+      "checkedAt": "2026-09-11T16:34:18.573Z",
+      "updatedAt": "2026-09-11T16:34:04.846Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34622437362",
       "conclusion": "success",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
@@ -81,13 +81,13 @@
         {
           "id": "meek-hesitant",
           "desiredOutcome": "date_accepted",
-          "outcomeAchieved": true,
+          "outcomeAchieved": false,
           "mechanicalPass": true
         },
         {
           "id": "rizz-invite-over",
           "desiredOutcome": "invite_accepted",
-          "outcomeAchieved": true,
+          "outcomeAchieved": false,
           "mechanicalPass": true
         }
       ]
@@ -101,7 +101,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T14:11:24.195Z",
+      "checkedAt": "2026-09-11T16:34:18.573Z",
       "updatedAt": "2026-09-11T12:00:03.362Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34596606668",
       "conclusion": "success",
@@ -113,11 +113,11 @@
       "name": "Health probe (Actions)",
       "description": "socialTrainer production health workflow",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T14:11:24.195Z",
+      "checkedAt": "2026-09-11T16:34:18.573Z",
       "updatedAt": "2026-09-11T13:44:32.194Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34605987797",
       "conclusion": "success",
@@ -162,12 +162,12 @@
       "d30": 100
     },
     "hourly-prod-scenarios": {
-      "h24": 71.4,
+      "h24": 69.2,
       "d7": 94.5,
       "d30": 94.5
     },
     "nightly-prod": {
-      "h24": 78.6,
+      "h24": 76.9,
       "d7": 95.9,
       "d30": 95.9
     },
