@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T11:26:38.148Z",
+  "generatedAt": "2026-09-11T11:31:27.751Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -9,8 +9,8 @@
       "conclusion": "failure",
       "status": "down",
       "reason": "Latest run failed",
-      "updatedAt": "2026-09-11T11:26:37.564Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34593958636",
+      "updatedAt": "2026-09-11T11:31:27.153Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594358666",
       "summary": "mechanical 3/3 attempts failed",
       "outcomes": [
         {
