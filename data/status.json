@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T11:38:55.525Z",
+  "generatedAt": "2026-09-11T11:40:49.079Z",
   "overall": "down",
   "components": [
     {
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 299,
+      "latencyMs": 309,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:38:55.825Z",
+      "checkedAt": "2026-09-11T11:40:49.390Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 175,
+      "latencyMs": 166,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:38:56.002Z",
+      "checkedAt": "2026-09-11T11:40:49.556Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 197,
+      "latencyMs": 138,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:38:56.199Z",
+      "checkedAt": "2026-09-11T11:40:49.694Z",
       "kind": "proxy"
     },
     {
@@ -43,7 +43,7 @@
       "reason": null,
       "latencyMs": 201,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:38:56.400Z",
+      "checkedAt": "2026-09-11T11:40:49.895Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 1178,
+      "latencyMs": 176,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:38:57.578Z",
+      "checkedAt": "2026-09-11T11:40:50.071Z",
       "kind": "proxy"
     },
     {
@@ -62,33 +62,33 @@
       "name": "Hourly scenarios",
       "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
       "kind": "ci",
-      "status": "down",
-      "reason": "Latest run failed",
+      "status": "operational",
+      "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T11:38:55.525Z",
-      "updatedAt": "2026-09-11T11:31:27.153Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594358666",
-      "conclusion": "failure",
-      "summary": "mechanical 3/3 attempts failed",
+      "checkedAt": "2026-09-11T11:40:49.079Z",
+      "updatedAt": "2026-09-11T11:40:35.208Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594968071",
+      "conclusion": "success",
+      "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
         {
           "id": "brash-come-on",
           "desiredOutcome": "come_on_accepted",
           "outcomeAchieved": false,
-          "mechanicalPass": false
+          "mechanicalPass": true
         },
         {
           "id": "meek-hesitant",
           "desiredOutcome": "date_accepted",
-          "outcomeAchieved": false,
-          "mechanicalPass": false
+          "outcomeAchieved": true,
+          "mechanicalPass": true
         },
         {
           "id": "rizz-invite-over",
           "desiredOutcome": "invite_accepted",
-          "outcomeAchieved": false,
-          "mechanicalPass": false
+          "outcomeAchieved": true,
+          "mechanicalPass": true
         }
       ]
     },
@@ -101,7 +101,7 @@
       "reason": "Latest run failed",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T11:38:55.525Z",
+      "checkedAt": "2026-09-11T11:40:49.079Z",
       "updatedAt": "2026-09-11T11:12:30.980Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34592811289",
       "conclusion": "failure",
@@ -117,7 +117,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T11:38:55.525Z",
+      "checkedAt": "2026-09-11T11:40:49.079Z",
       "updatedAt": "2026-09-11T11:38:40.168Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594970678",
       "conclusion": "success",
@@ -129,10 +129,9 @@
     "active": true,
     "startedAt": "2026-09-11T06:04:03.394Z",
     "components": [
-      "Hourly scenarios",
       "Nightly LLM probe"
     ],
-    "summary": "Hourly scenarios, Nightly LLM probe are down"
+    "summary": "Nightly LLM probe is down"
   },
   "lastIncident": null,
   "uptime": {
@@ -162,14 +161,14 @@
       "d30": 100
     },
     "hourly-prod-scenarios": {
-      "h24": 66.7,
-      "d7": 94.3,
-      "d30": 94.3
+      "h24": 68,
+      "d7": 94.4,
+      "d30": 94.4
     },
     "nightly-prod": {
-      "h24": 79.2,
-      "d7": 96.5,
-      "d30": 96.5
+      "h24": 76,
+      "d7": 95.8,
+      "d30": 95.8
     },
     "prod-health": {
       "h24": 100,
