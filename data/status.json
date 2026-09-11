@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T11:40:49.079Z",
-  "overall": "down",
+  "generatedAt": "2026-09-11T12:00:20.127Z",
+  "overall": "operational",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 309,
+      "latencyMs": 310,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:40:49.390Z",
+      "checkedAt": "2026-09-11T12:00:20.437Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 166,
+      "latencyMs": 230,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:40:49.556Z",
+      "checkedAt": "2026-09-11T12:00:20.668Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 138,
+      "latencyMs": 242,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:40:49.694Z",
+      "checkedAt": "2026-09-11T12:00:20.910Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 201,
+      "latencyMs": 231,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:40:49.895Z",
+      "checkedAt": "2026-09-11T12:00:21.141Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 176,
+      "latencyMs": 239,
       "httpStatus": 200,
-      "checkedAt": "2026-09-11T11:40:50.071Z",
+      "checkedAt": "2026-09-11T12:00:21.380Z",
       "kind": "proxy"
     },
     {
@@ -66,7 +66,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T11:40:49.079Z",
+      "checkedAt": "2026-09-11T12:00:20.127Z",
       "updatedAt": "2026-09-11T11:40:35.208Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594968071",
       "conclusion": "success",
@@ -97,14 +97,14 @@
       "name": "Nightly LLM probe",
       "description": "Scheduled production conversation",
       "kind": "ci",
-      "status": "down",
-      "reason": "Latest run failed",
+      "status": "operational",
+      "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T11:40:49.079Z",
-      "updatedAt": "2026-09-11T11:12:30.980Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34592811289",
-      "conclusion": "failure",
+      "checkedAt": "2026-09-11T12:00:20.127Z",
+      "updatedAt": "2026-09-11T12:00:03.362Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34596606668",
+      "conclusion": "success",
       "summary": "nightly production conversation",
       "outcomes": null
     },
@@ -117,7 +117,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-11T11:40:49.079Z",
+      "checkedAt": "2026-09-11T12:00:20.127Z",
       "updatedAt": "2026-09-11T11:38:40.168Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34594970678",
       "conclusion": "success",
@@ -125,15 +125,16 @@
       "outcomes": null
     }
   ],
-  "incident": {
-    "active": true,
+  "incident": null,
+  "lastIncident": {
+    "active": false,
     "startedAt": "2026-09-11T06:04:03.394Z",
     "components": [
       "Nightly LLM probe"
     ],
-    "summary": "Nightly LLM probe is down"
+    "summary": "Nightly LLM probe is down",
+    "resolvedAt": "2026-09-11T12:00:20.127Z"
   },
-  "lastIncident": null,
   "uptime": {
     "web": {
       "h24": 100,
@@ -161,12 +162,12 @@
       "d30": 100
     },
     "hourly-prod-scenarios": {
-      "h24": 68,
+      "h24": 69.2,
       "d7": 94.4,
       "d30": 94.4
     },
     "nightly-prod": {
-      "h24": 76,
+      "h24": 76.9,
       "d7": 95.8,
       "d30": 95.8
     },
