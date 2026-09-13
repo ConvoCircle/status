@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-13T06:18:38.736Z",
-  "overall": "operational",
+  "generatedAt": "2026-09-13T09:47:05.648Z",
+  "overall": "degraded",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 368,
+      "latencyMs": 285,
       "httpStatus": 200,
-      "checkedAt": "2026-09-13T06:18:39.105Z",
+      "checkedAt": "2026-09-13T09:47:05.935Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 300,
+      "latencyMs": 165,
       "httpStatus": 200,
-      "checkedAt": "2026-09-13T06:18:39.406Z",
+      "checkedAt": "2026-09-13T09:47:06.100Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 303,
+      "latencyMs": 1218,
       "httpStatus": 200,
-      "checkedAt": "2026-09-13T06:18:39.709Z",
+      "checkedAt": "2026-09-13T09:47:07.319Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 291,
+      "latencyMs": 172,
       "httpStatus": 200,
-      "checkedAt": "2026-09-13T06:18:40.001Z",
+      "checkedAt": "2026-09-13T09:47:07.491Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 1251,
+      "latencyMs": 149,
       "httpStatus": 200,
-      "checkedAt": "2026-09-13T06:18:41.252Z",
+      "checkedAt": "2026-09-13T09:47:07.640Z",
       "kind": "proxy"
     },
     {
@@ -62,11 +62,11 @@
       "name": "Hourly scenarios",
       "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-13T06:18:38.736Z",
+      "checkedAt": "2026-09-13T09:47:05.648Z",
       "updatedAt": "2026-09-13T06:15:32.335Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34742190345",
       "conclusion": "success",
@@ -101,7 +101,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-13T06:18:38.736Z",
+      "checkedAt": "2026-09-13T09:47:05.648Z",
       "updatedAt": "2026-09-12T10:40:43.666Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34689026674",
       "conclusion": "success",
@@ -113,11 +113,11 @@
       "name": "Health probe (Actions)",
       "description": "socialTrainer production health workflow",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-13T06:18:38.736Z",
+      "checkedAt": "2026-09-13T09:47:05.648Z",
       "updatedAt": "2026-09-13T06:18:24.636Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34742395933",
       "conclusion": "success",
