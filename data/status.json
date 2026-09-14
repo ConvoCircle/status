@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T01:09:21.778Z",
+  "generatedAt": "2026-09-14T01:11:44.426Z",
   "overall": "operational",
   "components": [
     {
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 411,
+      "latencyMs": 123,
       "httpStatus": 200,
-      "checkedAt": "2026-09-14T01:09:22.190Z",
+      "checkedAt": "2026-09-14T01:11:44.550Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 190,
+      "latencyMs": 51,
       "httpStatus": 200,
-      "checkedAt": "2026-09-14T01:09:22.381Z",
+      "checkedAt": "2026-09-14T01:11:44.602Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 263,
+      "latencyMs": 39,
       "httpStatus": 200,
-      "checkedAt": "2026-09-14T01:09:22.644Z",
+      "checkedAt": "2026-09-14T01:11:44.641Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 1099,
+      "latencyMs": 90,
       "httpStatus": 200,
-      "checkedAt": "2026-09-14T01:09:23.743Z",
+      "checkedAt": "2026-09-14T01:11:44.731Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 140,
+      "latencyMs": 1060,
       "httpStatus": 200,
-      "checkedAt": "2026-09-14T01:09:23.883Z",
+      "checkedAt": "2026-09-14T01:11:45.791Z",
       "kind": "proxy"
     },
     {
@@ -66,9 +66,9 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-14T01:09:21.778Z",
-      "updatedAt": "2026-09-13T22:29:05.046Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34786785081",
+      "checkedAt": "2026-09-14T01:11:44.426Z",
+      "updatedAt": "2026-09-14T01:11:25.963Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34794932870",
       "conclusion": "success",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
@@ -81,7 +81,7 @@
         {
           "id": "meek-hesitant",
           "desiredOutcome": "date_accepted",
-          "outcomeAchieved": false,
+          "outcomeAchieved": true,
           "mechanicalPass": true
         },
         {
@@ -101,7 +101,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-14T01:09:21.778Z",
+      "checkedAt": "2026-09-14T01:11:44.426Z",
       "updatedAt": "2026-09-13T11:43:41.100Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34755130784",
       "conclusion": "success",
@@ -117,7 +117,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-14T01:09:21.778Z",
+      "checkedAt": "2026-09-14T01:11:44.426Z",
       "updatedAt": "2026-09-14T01:09:06.713Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34794928639",
       "conclusion": "success",
@@ -163,7 +163,7 @@
     },
     "hourly-prod-scenarios": {
       "h24": 100,
-      "d7": 95,
+      "d7": 95.1,
       "d30": 96.2
     },
     "nightly-prod": {
