@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T01:31:17.715Z",
+  "generatedAt": "2026-09-15T01:33:20.151Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -40,8 +40,8 @@
       "conclusion": "failure",
       "status": "down",
       "reason": "Latest run failed",
-      "updatedAt": "2026-09-15T01:31:17.123Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34917287221",
+      "updatedAt": "2026-09-15T01:33:19.714Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34917287880",
       "summary": "nightly conversation=skipped coach=failure",
       "outcomes": null
     },
