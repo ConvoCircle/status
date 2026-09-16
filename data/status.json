@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-16T09:32:29.676Z",
-  "overall": "degraded",
+  "generatedAt": "2026-09-16T11:29:14.397Z",
+  "overall": "down",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 318,
+      "latencyMs": 184,
       "httpStatus": 200,
-      "checkedAt": "2026-09-16T09:32:29.995Z",
+      "checkedAt": "2026-09-16T11:29:14.583Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 271,
+      "latencyMs": 59,
       "httpStatus": 200,
-      "checkedAt": "2026-09-16T09:32:30.267Z",
+      "checkedAt": "2026-09-16T11:29:14.643Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 228,
+      "latencyMs": 215,
       "httpStatus": 200,
-      "checkedAt": "2026-09-16T09:32:30.495Z",
+      "checkedAt": "2026-09-16T11:29:14.858Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 252,
+      "latencyMs": 116,
       "httpStatus": 200,
-      "checkedAt": "2026-09-16T09:32:30.747Z",
+      "checkedAt": "2026-09-16T11:29:14.974Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 230,
+      "latencyMs": 47,
       "httpStatus": 200,
-      "checkedAt": "2026-09-16T09:32:30.978Z",
+      "checkedAt": "2026-09-16T11:29:15.022Z",
       "kind": "proxy"
     },
     {
@@ -66,7 +66,7 @@
       "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-16T09:32:29.676Z",
+      "checkedAt": "2026-09-16T11:29:14.397Z",
       "updatedAt": "2026-09-16T06:07:34.821Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35062124289",
       "conclusion": "success",
@@ -97,15 +97,15 @@
       "name": "Nightly LLM probe",
       "description": "Scheduled production conversation",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "down",
+      "reason": "Latest run failed",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-16T09:32:29.676Z",
-      "updatedAt": "2026-09-15T11:55:37.570Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/34965545962",
-      "conclusion": "success",
-      "summary": "nightly conversation=skipped coach=success",
+      "checkedAt": "2026-09-16T11:29:14.397Z",
+      "updatedAt": "2026-09-16T11:29:01.376Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35090158121",
+      "conclusion": "failure",
+      "summary": "nightly conversation=success coach=failure",
       "outcomes": null
     },
     {
@@ -117,7 +117,7 @@
       "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-16T09:32:29.676Z",
+      "checkedAt": "2026-09-16T11:29:14.397Z",
       "updatedAt": "2026-09-16T06:49:38.372Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35065460563",
       "conclusion": "success",
@@ -125,16 +125,15 @@
       "outcomes": null
     }
   ],
-  "incident": null,
-  "lastIncident": {
-    "active": false,
-    "startedAt": "2026-09-15T11:27:20.635Z",
+  "incident": {
+    "active": true,
+    "startedAt": "2026-09-16T11:29:14.397Z",
     "components": [
       "Nightly LLM probe"
     ],
-    "summary": "Nightly LLM probe is down",
-    "resolvedAt": "2026-09-15T11:55:50.992Z"
+    "summary": "Nightly LLM probe is down"
   },
+  "lastIncident": null,
   "uptime": {
     "web": {
       "h24": 100,
@@ -163,13 +162,13 @@
     },
     "hourly-prod-scenarios": {
       "h24": 100,
-      "d7": 95.2,
+      "d7": 95.1,
       "d30": 96.9
     },
     "nightly-prod": {
-      "h24": 87,
-      "d7": 90.9,
-      "d30": 94.2
+      "h24": 85.7,
+      "d7": 90.2,
+      "d30": 93.8
     },
     "prod-health": {
       "h24": 100,
