@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T22:48:32.952Z",
+  "generatedAt": "2026-09-16T23:00:27.213Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -9,8 +9,8 @@
       "conclusion": "success",
       "status": "operational",
       "reason": null,
-      "updatedAt": "2026-09-16T20:12:15.851Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35144861969",
+      "updatedAt": "2026-09-16T23:00:26.173Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35160155778",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
         {
@@ -28,7 +28,7 @@
         {
           "id": "rizz-invite-over",
           "desiredOutcome": "invite_accepted",
-          "outcomeAchieved": true,
+          "outcomeAchieved": false,
           "mechanicalPass": true
         }
       ]
