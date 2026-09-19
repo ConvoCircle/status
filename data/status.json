@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-19T09:18:37.297Z",
-  "overall": "degraded",
+  "generatedAt": "2026-09-19T11:03:40.686Z",
+  "overall": "down",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 174,
+      "latencyMs": 255,
       "httpStatus": 200,
-      "checkedAt": "2026-09-19T09:18:37.472Z",
+      "checkedAt": "2026-09-19T11:03:40.941Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 133,
+      "latencyMs": 220,
       "httpStatus": 200,
-      "checkedAt": "2026-09-19T09:18:37.605Z",
+      "checkedAt": "2026-09-19T11:03:41.161Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 247,
+      "latencyMs": 215,
       "httpStatus": 200,
-      "checkedAt": "2026-09-19T09:18:37.854Z",
+      "checkedAt": "2026-09-19T11:03:41.376Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 105,
+      "latencyMs": 243,
       "httpStatus": 200,
-      "checkedAt": "2026-09-19T09:18:37.959Z",
+      "checkedAt": "2026-09-19T11:03:41.619Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 153,
+      "latencyMs": 203,
       "httpStatus": 200,
-      "checkedAt": "2026-09-19T09:18:38.112Z",
+      "checkedAt": "2026-09-19T11:03:41.822Z",
       "kind": "proxy"
     },
     {
@@ -66,7 +66,7 @@
       "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-19T09:18:37.297Z",
+      "checkedAt": "2026-09-19T11:03:40.686Z",
       "updatedAt": "2026-09-19T05:59:42.792Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35425292208",
       "conclusion": "success",
@@ -97,15 +97,15 @@
       "name": "Nightly LLM probe",
       "description": "Scheduled production conversation",
       "kind": "ci",
-      "status": "operational",
-      "reason": "Recovered via hourly scenarios (same LLM path)",
+      "status": "down",
+      "reason": "Latest run failed",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-19T09:18:37.297Z",
-      "updatedAt": "2026-09-18T11:22:17.918Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35339073624",
-      "conclusion": "success",
-      "summary": "mechanical 0/3 attempts failed",
+      "checkedAt": "2026-09-19T11:03:40.686Z",
+      "updatedAt": "2026-09-19T11:03:26.214Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35438526202",
+      "conclusion": "failure",
+      "summary": "nightly conversation=success coach=failure elevenlabs=success",
       "outcomes": null
     },
     {
@@ -113,11 +113,11 @@
       "name": "Health probe (Actions)",
       "description": "socialTrainer production health workflow",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-19T09:18:37.297Z",
+      "checkedAt": "2026-09-19T11:03:40.686Z",
       "updatedAt": "2026-09-19T08:55:58.554Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35433295681",
       "conclusion": "success",
@@ -125,16 +125,15 @@
       "outcomes": null
     }
   ],
-  "incident": null,
-  "lastIncident": {
-    "active": false,
-    "startedAt": "2026-09-18T11:12:20.351Z",
+  "incident": {
+    "active": true,
+    "startedAt": "2026-09-19T11:03:40.686Z",
     "components": [
       "Nightly LLM probe"
     ],
-    "summary": "Nightly LLM probe is down",
-    "resolvedAt": "2026-09-18T11:22:31.533Z"
+    "summary": "Nightly LLM probe is down"
   },
+  "lastIncident": null,
   "uptime": {
     "web": {
       "h24": 100,
@@ -167,9 +166,9 @@
       "d30": 97.5
     },
     "nightly-prod": {
-      "h24": 95.7,
-      "d7": 92.9,
-      "d30": 94.6
+      "h24": 90.9,
+      "d7": 92.2,
+      "d30": 94.3
     },
     "prod-health": {
       "h24": 100,
