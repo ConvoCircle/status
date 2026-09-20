@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T11:03:03.706Z",
+  "generatedAt": "2026-09-20T11:25:02.956Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -39,10 +39,10 @@
       "description": "Scheduled production conversation",
       "conclusion": "success",
       "status": "operational",
-      "reason": "Recovered via hourly scenarios (same LLM path)",
-      "updatedAt": "2026-09-19T11:06:22.959Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35439069989",
-      "summary": "mechanical 0/3 attempts failed",
+      "reason": null,
+      "updatedAt": "2026-09-20T11:25:02.406Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35507286081",
+      "summary": "nightly conversation=success coach=success elevenlabs=success",
       "outcomes": null
     },
     {
