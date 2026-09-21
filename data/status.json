@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-21T00:02:21.028Z",
-  "overall": "operational",
+  "generatedAt": "2026-09-21T01:12:08.748Z",
+  "overall": "degraded",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 506,
+      "latencyMs": 122,
       "httpStatus": 200,
-      "checkedAt": "2026-09-21T00:02:21.535Z",
+      "checkedAt": "2026-09-21T01:12:08.872Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 346,
+      "latencyMs": 52,
       "httpStatus": 200,
-      "checkedAt": "2026-09-21T00:02:21.881Z",
+      "checkedAt": "2026-09-21T01:12:08.924Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 349,
+      "latencyMs": 91,
       "httpStatus": 200,
-      "checkedAt": "2026-09-21T00:02:22.230Z",
+      "checkedAt": "2026-09-21T01:12:09.015Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 350,
+      "latencyMs": 90,
       "httpStatus": 200,
-      "checkedAt": "2026-09-21T00:02:22.580Z",
+      "checkedAt": "2026-09-21T01:12:09.105Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 350,
+      "latencyMs": 84,
       "httpStatus": 200,
-      "checkedAt": "2026-09-21T00:02:22.930Z",
+      "checkedAt": "2026-09-21T01:12:09.189Z",
       "kind": "proxy"
     },
     {
@@ -66,9 +66,9 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-21T00:02:21.028Z",
-      "updatedAt": "2026-09-20T22:30:52.364Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35541790279",
+      "checkedAt": "2026-09-21T01:12:08.748Z",
+      "updatedAt": "2026-09-21T01:11:55.127Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35549941326",
       "conclusion": "success",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
@@ -81,13 +81,13 @@
         {
           "id": "meek-hesitant",
           "desiredOutcome": "date_accepted",
-          "outcomeAchieved": true,
+          "outcomeAchieved": false,
           "mechanicalPass": true
         },
         {
           "id": "rizz-invite-over",
           "desiredOutcome": "invite_accepted",
-          "outcomeAchieved": false,
+          "outcomeAchieved": true,
           "mechanicalPass": true
         }
       ]
@@ -101,7 +101,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-21T00:02:21.028Z",
+      "checkedAt": "2026-09-21T01:12:08.748Z",
       "updatedAt": "2026-09-20T11:25:02.406Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35507286081",
       "conclusion": "success",
@@ -113,11 +113,11 @@
       "name": "Health probe (Actions)",
       "description": "socialTrainer production health workflow",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-21T00:02:21.028Z",
+      "checkedAt": "2026-09-21T01:12:08.748Z",
       "updatedAt": "2026-09-21T00:01:28.527Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35546284853",
       "conclusion": "success",
@@ -164,12 +164,12 @@
     "hourly-prod-scenarios": {
       "h24": 100,
       "d7": 100,
-      "d30": 97.7
+      "d30": 97.8
     },
     "nightly-prod": {
       "h24": 100,
       "d7": 91.9,
-      "d30": 94.9
+      "d30": 95
     },
     "prod-health": {
       "h24": 100,
