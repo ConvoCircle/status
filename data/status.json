@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T18:59:43.766Z",
+  "generatedAt": "2026-09-22T19:54:10.706Z",
   "overall": "degraded",
   "components": [
     {
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 348,
+      "latencyMs": 294,
       "httpStatus": 200,
-      "checkedAt": "2026-09-22T18:59:44.115Z",
+      "checkedAt": "2026-09-22T19:54:11.001Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 299,
+      "latencyMs": 91,
       "httpStatus": 200,
-      "checkedAt": "2026-09-22T18:59:44.415Z",
+      "checkedAt": "2026-09-22T19:54:11.093Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 320,
+      "latencyMs": 1036,
       "httpStatus": 200,
-      "checkedAt": "2026-09-22T18:59:44.735Z",
+      "checkedAt": "2026-09-22T19:54:12.129Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 316,
+      "latencyMs": 133,
       "httpStatus": 200,
-      "checkedAt": "2026-09-22T18:59:45.051Z",
+      "checkedAt": "2026-09-22T19:54:12.262Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 278,
+      "latencyMs": 41,
       "httpStatus": 200,
-      "checkedAt": "2026-09-22T18:59:45.329Z",
+      "checkedAt": "2026-09-22T19:54:12.304Z",
       "kind": "proxy"
     },
     {
@@ -66,7 +66,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-22T18:59:43.766Z",
+      "checkedAt": "2026-09-22T19:54:10.706Z",
       "updatedAt": "2026-09-22T18:59:28.063Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35770525592",
       "conclusion": "success",
@@ -101,7 +101,7 @@
       "reason": "Recovered via hourly scenarios (same LLM path)",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-22T18:59:43.766Z",
+      "checkedAt": "2026-09-22T19:54:10.706Z",
       "updatedAt": "2026-09-22T15:00:12.534Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35743914506",
       "conclusion": "success",
@@ -117,7 +117,7 @@
       "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-22T18:59:43.766Z",
+      "checkedAt": "2026-09-22T19:54:10.706Z",
       "updatedAt": "2026-09-22T16:48:44.155Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35756485888",
       "conclusion": "success",
