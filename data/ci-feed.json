@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T11:41:19.097Z",
+  "generatedAt": "2026-09-23T11:44:18.551Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -9,8 +9,8 @@
       "conclusion": "success",
       "status": "operational",
       "reason": null,
-      "updatedAt": "2026-09-23T06:03:38.580Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35824818985",
+      "updatedAt": "2026-09-23T11:44:18.173Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35856021491",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
         {
@@ -37,12 +37,12 @@
       "id": "nightly-prod",
       "name": "Nightly LLM probe",
       "description": "Scheduled production conversation",
-      "conclusion": "failure",
-      "status": "down",
-      "reason": "Latest run failed",
-      "updatedAt": "2026-09-23T11:41:18.645Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35854538498",
-      "summary": "nightly conversation=failure coach=failure elevenlabs=success",
+      "conclusion": "success",
+      "status": "operational",
+      "reason": "Recovered via hourly scenarios (same LLM path)",
+      "updatedAt": "2026-09-23T11:44:18.173Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/35856021491",
+      "summary": "mechanical 0/3 attempts failed",
       "outcomes": null
     },
     {
