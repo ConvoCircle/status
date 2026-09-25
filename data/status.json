@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-25T10:14:32.403Z",
-  "overall": "operational",
+  "generatedAt": "2026-09-25T11:59:20.632Z",
+  "overall": "degraded",
   "components": [
     {
       "id": "web",
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 322,
+      "latencyMs": 323,
       "httpStatus": 200,
-      "checkedAt": "2026-09-25T10:14:32.726Z",
+      "checkedAt": "2026-09-25T11:59:20.956Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 272,
+      "latencyMs": 224,
       "httpStatus": 200,
-      "checkedAt": "2026-09-25T10:14:32.999Z",
+      "checkedAt": "2026-09-25T11:59:21.181Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 274,
+      "latencyMs": 238,
       "httpStatus": 200,
-      "checkedAt": "2026-09-25T10:14:33.273Z",
+      "checkedAt": "2026-09-25T11:59:21.419Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 239,
+      "latencyMs": 230,
       "httpStatus": 200,
-      "checkedAt": "2026-09-25T10:14:33.514Z",
+      "checkedAt": "2026-09-25T11:59:21.649Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 247,
+      "latencyMs": 1187,
       "httpStatus": 200,
-      "checkedAt": "2026-09-25T10:14:33.761Z",
+      "checkedAt": "2026-09-25T11:59:22.836Z",
       "kind": "proxy"
     },
     {
@@ -62,11 +62,11 @@
       "name": "Hourly scenarios",
       "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-25T10:14:32.403Z",
+      "checkedAt": "2026-09-25T11:59:20.632Z",
       "updatedAt": "2026-09-25T07:55:02.427Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36109875188",
       "conclusion": "success",
@@ -98,14 +98,14 @@
       "description": "Scheduled production conversation",
       "kind": "ci",
       "status": "operational",
-      "reason": "Recovered via hourly scenarios (same LLM path)",
+      "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-25T10:14:32.403Z",
-      "updatedAt": "2026-09-24T15:12:01.103Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36018061837",
+      "checkedAt": "2026-09-25T11:59:20.632Z",
+      "updatedAt": "2026-09-25T11:59:05.062Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36130969334",
       "conclusion": "success",
-      "summary": "mechanical 1/3 attempts failed",
+      "summary": "nightly conversation=success coach=success elevenlabs=success",
       "outcomes": null
     },
     {
@@ -113,11 +113,11 @@
       "name": "Health probe (Actions)",
       "description": "socialTrainer production health workflow",
       "kind": "ci",
-      "status": "operational",
-      "reason": null,
+      "status": "degraded",
+      "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-25T10:14:32.403Z",
+      "checkedAt": "2026-09-25T11:59:20.632Z",
       "updatedAt": "2026-09-25T10:14:15.657Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36122818118",
       "conclusion": "success",
@@ -167,8 +167,8 @@
       "d30": 98.2
     },
     "nightly-prod": {
-      "h24": 83.3,
-      "d7": 92.8,
+      "h24": 88.9,
+      "d7": 93.5,
       "d30": 94
     },
     "prod-health": {
