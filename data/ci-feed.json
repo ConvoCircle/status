@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T20:26:22.999Z",
+  "generatedAt": "2026-09-27T22:17:04.982Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -9,8 +9,8 @@
       "conclusion": "success",
       "status": "operational",
       "reason": null,
-      "updatedAt": "2026-09-27T18:29:32.547Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36340674210",
+      "updatedAt": "2026-09-27T22:17:04.468Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36354593939",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
         {
@@ -22,7 +22,7 @@
         {
           "id": "meek-hesitant",
           "desiredOutcome": "date_accepted",
-          "outcomeAchieved": false,
+          "outcomeAchieved": true,
           "mechanicalPass": true
         },
         {
