@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T13:46:23.238Z",
+  "generatedAt": "2026-09-28T15:34:51.519Z",
   "overall": "degraded",
   "components": [
     {
@@ -8,9 +8,9 @@
       "description": "https://convocircle.ai",
       "status": "operational",
       "reason": null,
-      "latencyMs": 313,
+      "latencyMs": 397,
       "httpStatus": 200,
-      "checkedAt": "2026-09-28T13:46:23.553Z",
+      "checkedAt": "2026-09-28T15:34:51.917Z",
       "kind": "web"
     },
     {
@@ -19,9 +19,9 @@
       "description": "Conversation / LLM proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 238,
+      "latencyMs": 181,
       "httpStatus": 200,
-      "checkedAt": "2026-09-28T13:46:23.791Z",
+      "checkedAt": "2026-09-28T15:34:52.098Z",
       "kind": "proxy"
     },
     {
@@ -30,9 +30,9 @@
       "description": "Voice / TTS proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 248,
+      "latencyMs": 202,
       "httpStatus": 200,
-      "checkedAt": "2026-09-28T13:46:24.039Z",
+      "checkedAt": "2026-09-28T15:34:52.300Z",
       "kind": "proxy"
     },
     {
@@ -41,9 +41,9 @@
       "description": "Checkout / billing proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 294,
+      "latencyMs": 159,
       "httpStatus": 200,
-      "checkedAt": "2026-09-28T13:46:24.334Z",
+      "checkedAt": "2026-09-28T15:34:52.460Z",
       "kind": "proxy"
     },
     {
@@ -52,9 +52,9 @@
       "description": "OpenRouter proxy",
       "status": "operational",
       "reason": null,
-      "latencyMs": 244,
+      "latencyMs": 191,
       "httpStatus": 200,
-      "checkedAt": "2026-09-28T13:46:24.579Z",
+      "checkedAt": "2026-09-28T15:34:52.651Z",
       "kind": "proxy"
     },
     {
@@ -62,13 +62,13 @@
       "name": "Hourly scenarios",
       "description": "Mechanical LLM health (rizz / brash / meek) — not whether she said yes",
       "kind": "ci",
-      "status": "degraded",
-      "reason": "Last successful run is stale",
+      "status": "operational",
+      "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-28T13:46:23.238Z",
-      "updatedAt": "2026-09-28T07:01:02.809Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36389114321",
+      "checkedAt": "2026-09-28T15:34:51.519Z",
+      "updatedAt": "2026-09-28T15:34:33.629Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36444270903",
       "conclusion": "success",
       "summary": "mechanical 0/3 attempts failed",
       "outcomes": [
@@ -87,7 +87,7 @@
         {
           "id": "rizz-invite-over",
           "desiredOutcome": "invite_accepted",
-          "outcomeAchieved": true,
+          "outcomeAchieved": false,
           "mechanicalPass": true
         }
       ]
@@ -101,7 +101,7 @@
       "reason": null,
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-28T13:46:23.238Z",
+      "checkedAt": "2026-09-28T15:34:51.519Z",
       "updatedAt": "2026-09-28T13:46:05.818Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36430791416",
       "conclusion": "success",
@@ -117,7 +117,7 @@
       "reason": "Last successful run is stale",
       "latencyMs": null,
       "httpStatus": null,
-      "checkedAt": "2026-09-28T13:46:23.238Z",
+      "checkedAt": "2026-09-28T15:34:51.519Z",
       "updatedAt": "2026-09-28T07:41:31.639Z",
       "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36392968740",
       "conclusion": "success",
