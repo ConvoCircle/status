@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T08:38:00.758Z",
+  "generatedAt": "2026-09-29T12:44:22.383Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -40,8 +40,8 @@
       "conclusion": "success",
       "status": "operational",
       "reason": null,
-      "updatedAt": "2026-09-28T13:46:05.818Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36430791416",
+      "updatedAt": "2026-09-29T12:44:21.762Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36569976777",
       "summary": "nightly conversation=success coach=probe-only (non-blocking) elevenlabs=success",
       "outcomes": null
     },
