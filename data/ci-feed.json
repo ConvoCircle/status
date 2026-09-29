@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T02:03:28.303Z",
+  "generatedAt": "2026-09-29T06:57:42.750Z",
   "source": "socialTrainer",
   "workflows": [
     {
@@ -52,8 +52,8 @@
       "conclusion": "success",
       "status": "operational",
       "reason": null,
-      "updatedAt": "2026-09-29T01:17:55.511Z",
-      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36507159746",
+      "updatedAt": "2026-09-29T06:57:42.290Z",
+      "url": "https://github.com/ConvoCircle/socialTrainer/actions/runs/36533802586",
       "summary": "site + proxy health",
       "outcomes": null
     }
